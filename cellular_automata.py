@@ -5,6 +5,8 @@ Created on Tue Mar 12 21:29:22 2024
 @author: mettewh24
 """
 
+
+
 rule30 = {"000": '.',
           "00.": '.',
           "0.0": '.',
@@ -28,7 +30,8 @@ def evolve(state):
             triplet=state[i-1]+state[i]+state[0]    
         else:
             triplet=state[i-1]+state[i]+state[i+1]
-        new_state=rule30[triplet]+new_state
+        
+        new_state=new_state+rule30[triplet]
     
     return new_state
     
@@ -37,11 +40,13 @@ def simulation(nsteps):
 
     initial_state = generate_state()
     states_seq = [initial_state]
+
     for i in range(nsteps):
         old_state = states_seq[-1]
         new_state = evolve(old_state)
         states_seq.append(new_state)
     return states_seq
+
 
 n=input('Insert number of steps \n')
 n=int(n)

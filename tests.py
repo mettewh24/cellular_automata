@@ -23,5 +23,5 @@ def test_state_lenght():
     
     
 def test_evolve_generate_state():
-    new_state=evolve(generate_state())
-    assert new_state =="...000..."
+    new_state=evolve("..000..")
+    assert new_state ==".00..0."
